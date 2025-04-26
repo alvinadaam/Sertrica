@@ -1,0 +1,23 @@
+{
+  "name": "sertrica",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d Sertrica"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinadaam/Sertrica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvinadaam/Sertrica/issues"
+  },
+  "homepage": "https://alvinadaam.github.com/Sertrica",
+  "description": "",
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
