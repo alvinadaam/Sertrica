@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <filter id="neon-glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" 
+        flood-color="#00FF9D" flood-opacity="0.8"/>
+    </filter>
+    <linearGradient id="cyber-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FEFE;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00FF9D;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="36" height="36" rx="2" 
+        fill="none" stroke="url(#cyber-gradient)" 
+        stroke-width="2" filter="url(#neon-glow)"/>
+  <path fill="#00FF9D" filter="url(#neon-glow)" 
+        d="M14 32l8-8-8-8 2-2 10 10-10 10zm16 0h-6v-4h6v4z"/>
+</svg>

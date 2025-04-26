@@ -1,0 +1,195 @@
+<!-- demo.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SERTRICA - Demo</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    /* Demo-specific additions */
+    .demo-panel {
+      max-width: 600px;
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .input-group {
+      margin: 1.5rem 0;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid #3A8B8B;
+      color: #00FEFE;
+      margin: 0.5rem 0;
+      transition: all 0.3s;
+    }
+
+    /* Select styling */
+    .select-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .custom-select {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid #3A8B8B;
+      color: #00FEFE;
+      margin: 0.5rem 0;
+      appearance: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .custom-select:focus {
+      box-shadow: 0 0 15px rgba(0, 254, 254, 0.2);
+      animation: inputGlow 1.5s infinite;
+      outline: none;
+    }
+
+    /* Custom dropdown arrow */
+    .select-container::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 8px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='%2300FEFE' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300FEFE' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Dropdown options styling */
+    .custom-select option {
+      background: #0A192F;
+      color: #00FEFE;
+      border: 1px solid #3A8B8B;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    /* Demo Button */
+    .demo-btn {
+      background: transparent;
+      border: 2px solid #3A8B8B;
+      color: #00FEFE;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .demo-btn:hover {
+      border-color: #00FEFE;
+      box-shadow: 0 0 24px rgba(0, 254, 254, 0.2);
+      transform: scale(1.1) rotate(2deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .demo-btn::after {
+      content: '>';
+      margin-left: 1rem;
+      animation: flicker 0.8s infinite;
+    }
+
+    .demo-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      border-top: 4px solid #00FEFE;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      margin: 1rem auto;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    /* Explanation text */
+    .demo-explanation {
+      max-width: 600px;
+      margin: 1rem auto;
+      font-size: 0.9rem;
+      color: rgba(224, 224, 224, 0.75);
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">SERTRICA</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="install.html">Download</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Live Encryption Demo</h1>
+    <p class="tagline">Test AES and AES+RSA encryption modes.</p>
+
+    <div class="demo-panel">
+      <div class="input-group">
+        <textarea id="input" placeholder="Enter text to encrypt or decrypt..." rows="4"></textarea>
+        <div class="select-container">
+          <select id="encType" class="custom-select">
+            <option value="aes">AES Encryption</option>
+            <option value="aes_rsa">AES+RSA Hybrid</option>
+          </select>
+        </div>
+        <div class="btn-group">
+          <button class="demo-btn" id="encryptBtn">ENCRYPT [▲]</button>
+          <button class="demo-btn" id="decryptBtn">DECRYPT [▼]</button>
+        </div>
+      </div>
+      <textarea id="output" placeholder="Your result will appear here..." rows="4" readonly></textarea>
+      <div class="spinner" id="spinner" style="display: none; margin: 0 auto;"></div>
+      <div class="demo-explanation">
+        <p><strong>Note:</strong> This demo showcases AES and AES+RSA encryption modes. It is for educational purposes
+          only and not suitable for production use.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/demo.js" defer></script>
+</body>
+
+</html>

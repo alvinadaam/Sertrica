@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>SERTRICA</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget { font-family: 'Roboto'; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="main_layout">
+    <property name="spacing">
+     <number>15</number>
+    </property>
+    <property name="leftMargin">
+     <number>20</number>
+    </property>
+    <property name="topMargin">
+     <number>20</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <property name="bottomMargin">
+     <number>20</number>
+    </property>
+
+    <!-- Input Section -->
+    <item>
+     <widget class="QGroupBox" name="input_group">
+      <property name="title">
+       <string>Input</string>
+      </property>
+      <layout class="QVBoxLayout" name="input_layout">
+       <item>
+        <widget class="QTextEdit" name="text_input">
+         <property name="placeholderText">
+          <string>Enter text to encrypt/decrypt...</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="file_clear_layout">
+         <item>
+          <widget class="QPushButton" name="file_btn">
+           <property name="text">
+            <string>Upload File</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clear_btn">
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Encryption Options -->
+    <item>
+     <layout class="QHBoxLayout" name="options_layout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Encryption Type:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="encryption_type">
+        <item>
+         <property name="text">
+          <string>AES</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>AES+RSA Hybrid</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>RSA Key Management</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Key:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="key_input">
+        <property name="placeholderText">
+         <string>Enter Encryption Key</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- RSA Key Management Section -->
+    <item>
+     <widget class="QGroupBox" name="rsa_key_group">
+      <property name="title">
+       <string>RSA Key Management</string>
+      </property>
+      <property name="visible">
+       <bool>false</bool>
+      </property>
+      <layout class="QVBoxLayout" name="rsa_key_layout">
+       <item>
+        <layout class="QHBoxLayout" name="rsa_key_buttons_layout">
+         <item>
+          <widget class="QPushButton" name="generate_rsa_keys_btn">
+           <property name="text">
+            <string>Generate RSA Keys</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="import_rsa_keys_btn">
+           <property name="text">
+            <string>Import RSA Keys</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="export_rsa_keys_btn">
+           <property name="text">
+            <string>Export RSA Keys</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="rsa_key_fields_layout">
+         <item>
+          <widget class="QTextEdit" name="public_key_field">
+           <property name="placeholderText">
+            <string>Public Key</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="private_key_field">
+           <property name="placeholderText">
+            <string>Private Key</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Action Buttons -->
+    <item>
+     <layout class="QHBoxLayout" name="btn_layout">
+      <item>
+       <widget class="QPushButton" name="encrypt_btn">
+        <property name="text">
+         <string>Encrypt</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="decrypt_btn">
+        <property name="text">
+         <string>Decrypt</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Output Section -->
+    <item>
+     <widget class="QGroupBox" name="output_group">
+      <property name="title">
+       <string>Output</string>
+      </property>
+      <layout class="QVBoxLayout" name="output_layout">
+       <item>
+        <layout class="QHBoxLayout" name="encrypted_layout">
+         <item>
+          <widget class="QTextEdit" name="encrypted_output">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="copy_encrypted">
+           <property name="text">
+            <string>Copy</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="save_encrypted_btn">
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="decrypted_layout">
+         <item>
+          <widget class="QTextEdit" name="decrypted_output">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="copy_decrypted">
+           <property name="text">
+            <string>Copy</string>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="save_decrypted_btn">
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Progress Bar -->
+    <item>
+     <widget class="QProgressBar" name="progress">
+      <property name="visible">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Error Label -->
+    <item>
+     <widget class="QLabel" name="error_label">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #ff0000;</string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Theme Toggle -->
+    <item>
+     <widget class="QPushButton" name="theme_toggle">
+      <property name="text">
+       <string>Toggle Light/Dark</string>
+      </property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changelog - SERTRICA</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <style>
+        .changelog {
+            max-width: 1200px;
+            margin: 10vh auto 5vh;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .changelog h1 {
+            font-size: 2.8rem;
+            color: #00FEFE;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(0, 254, 254, 0.3);
+            display: flex;
+            justify-content: center;
+            /* Added to ensure centering */
+        }
+
+        .changelog .tagline {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #8af3ff;
+            margin-top: 1rem;
+            /* Adjusted to position it slightly below the heading */
+            margin-bottom: 4rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .changelog .tagline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00FF9D, transparent);
+        }
+
+        /* Grid Layout */
+        .changelog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .version {
+            padding: 1.5rem;
+            background: rgba(16, 42, 87, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 254, 254, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .version:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 254, 254, 0.3);
+        }
+
+        .version::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #00FF9D, #00FEFE);
+            opacity: 0.3;
+        }
+
+        .version h2 {
+            font-size: 1.6rem;
+            color: #00FF9D;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, #00FEFE, #00FF9D);
+            color: #0A192F;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 254, 254, 0.2);
+        }
+
+        .category {
+            font-weight: 600;
+            margin-top: 1.2rem;
+            color: #00FEFE;
+            padding-left: 1rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .category::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00FF9D;
+        }
+
+        .changelog ul {
+            padding-left: 1.5rem;
+            margin-top: 0.6rem;
+            list-style-type: none;
+        }
+
+        .changelog li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .changelog li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background: #00FF9D;
+            border-radius: 50%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .changelog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .changelog {
+                margin: 5vh auto;
+                padding: 0 1.5rem;
+                max-width: 100%;
+            }
+
+            .changelog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .version {
+                min-height: auto;
+                padding: 1.2rem;
+            }
+        }
+
+        /* CTA Buttons */
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 2px solid #00FEFE;
+            border-radius: 2rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #00FEFE;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: rgba(0, 254, 254, 0.1);
+            transform: scale(1.05);
+        }
+
+        .version .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: #00FEFE;
+            border: 1px solid #00FEFE;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .version .download-btn:hover {
+            background: rgba(0, 254, 254, 0.1);
+            transform: scale(1.05);
+        }
+
+        .download-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">SERTRICA</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="install.html">Download</a>
+            <a href="demo.html">Demo</a>
+        </div>
+    </nav>
+
+    <div class="changelog">
+        <h1>Changelog</h1>
+        <p class="tagline">All the updates and fixes, in one place</p>
+
+        <div class="changelog-grid" style="opacity: 0; animation: fadeIn 1.5s ease-out forwards;">
+            <!-- Version 0.2.0 -->
+            <div class="version">
+                <h2>v0.2.0 BETA2 <span class="badge">2025-04-25</span></h2>
+                <div class="category">Added</div>
+                <ul>
+                    <li>AES+RSA Hybrid Mode</li>
+                    <li>Multi-platform support (Win/macOS/Linux)</li>
+                </ul>
+                <div class="category">Fixed</div>
+                <ul>
+                    <li>UI glitch on dark mode toggle</li>
+                    <li>Offline sync bug when importing keys</li>
+                </ul>
+                <div class="category">Improved</div>
+                <ul>
+                    <li>Startup time reduced by 30%</li>
+                    <li>Error messages now more descriptive</li>
+                </ul>
+                <div class="download-btn-container">
+                    <a href="downloads/v0.2.0.zip" class="download-btn">Download v0.2.0</a>
+                </div>
+            </div>
+
+            <!-- Version 0.1.0 -->
+            <div class="version">
+                <h2>v0.1.0 BETA1 <span class="badge">2025-03-15</span></h2>
+                <div class="category">Added</div>
+                <ul>
+                    <li>AES encryption/decryption</li>
+                    <li>Hybrid mode placeholder</li>
+                    <li>Cyberpunk dark mode</li>
+                    <li>Clipboard functionality</li>
+                    <li>Cross-platform support</li>
+                </ul>
+                <div class="category">Improved</div>
+                <ul>
+                    <li>Basic error handling</li>
+                </ul>
+                <div class="download-btn-container">
+                    <a href="downloads/v0.1.0.zip" class="download-btn">Download v0.1.0</a>
+                </div>
+            </div>
+
+            <!-- Version 0.0.1 -->
+            <div class="version">
+                <h2>v0.0.1 ALPHA <span class="badge">2025-02-01</span></h2>
+                <div class="category">Added</div>
+                <ul>
+                    <li>Initial project setup</li>
+                    <li>Basic encryption prototype</li>
+                    <li>Core UI framework</li>
+                </ul>
+                <div class="category">Known Issues</div>
+                <ul>
+                    <li>Windows-only support</li>
+                    <li>No error handling</li>
+                    <li>Memory leaks in UI</li>
+                </ul>
+                <div class="download-btn-container">
+                    <a href="downloads/v0.0.1.zip" class="download-btn">Download v0.0.1</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a href="SERTRICA.zip" class="cta-btn">Download Latest Version</a>
+        </div>
+    </div>
+</body>
+
+</html>
