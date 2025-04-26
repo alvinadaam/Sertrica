@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERTRICA - Encryption Tool</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* Demo Button */
+    .demo-btn {
+      background: transparent;
+      border: 2px solid #3A8B8B;
+      color: #00FEFE;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .demo-btn:hover {
+      border-color: #00FEFE;
+      box-shadow: 0 0 24px rgba(0, 254, 254, 0.2);
+      transform: scale(1.1) rotate(2deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .demo-btn::after {
+      content: '>';
+      margin-left: 1rem;
+      animation: flicker 0.8s infinite;
+    }
+
+    /* —————————————————————————————— */
+    /* Hero Call-to-Action Buttons */
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border: 2px solid #00FEFE;
+      border-radius: 2rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #00FEFE;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: rgba(0, 254, 254, 0.1);
+      transform: scale(1.05);
+    }
+
+    .cta-btn.outline {
+      border-color: #E0E0E0;
+      color: #E0E0E0;
+    }
+
+    .cta-btn.outline:hover {
+      background: rgba(224, 224, 224, 0.1);
+    }
+
+    .features-minimal {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem;
+      margin: 4rem 5% 2rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #c8f8ff;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .features-minimal div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      padding: 0.5rem 0;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      border-left: 3px solid #00feff;
+      padding-left: 1rem;
+    }
+
+    .features-minimal strong {
+      font-size: 1rem;
+      color: #00feff;
+    }
+
+    .features-minimal span {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <!-- Added aria-label for accessibility -->
+    <div class="logo" aria-label="SERTRICA Logo">SERTRICA</div>
+    <div class="nav-links" id="navLinks">
+      <a href="demo.html">Demo</a>
+      <a href="install.html">Download</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>SERTRICA</h1>
+    <p class="tagline">Encrypt your world</p>
+    <a href="demo.html">
+      <button class="demo-btn" aria-label="Launch Demo">LAUNCH DEMO</button>
+    </a>
+
+    <section class="features-minimal">
+      <div><strong>AES-256</strong><span>Secure. Fast. Local.</span></div>
+      <div><strong>Hybrid Mode</strong><span>AES + RSA combo</span></div>
+      <div><strong>Offline First</strong><span>No telemetry, ever</span></div>
+      <div><strong>Multi-Platform</strong><span>Win / macOS / Linux</span></div>
+      <div><strong>Clean UI</strong><span>Dark, soft, functional</span></div>
+      <div><strong>Lightweight</strong><span>Quick launch, small size</span></div>
+    </section>
+
+
+    <div class="hero-cta">
+      <a href="install.html" class="cta-btn">Download BETA2</a>
+      <a href="https://github.com/xzeromin/SERTRICA" class="cta-btn outline">View on GitHub</a>
+    </div>
+    <div class="signature">Built by xzeromin — a coder who raps, or a rapper who codes.</div>
+  </div>
+</body>
+
+</html>

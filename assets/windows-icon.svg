@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <filter id="neon-glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" 
+        flood-color="#00FEFE" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  <path fill="#00FEFE" filter="url(#neon-glow)" d="M42.4 6H5.6C5.3 6 5 6.3 5 6.6v34.8c0 .3.3.6.6.6h15.8V27.2H19V42h23.4c.3 0 .6-.3.6-.6V6.6c0-.3-.3-.6-.6-.6zM22 37.2V27.2h-4.6V42h4.6v-4.8zm20.4 3H26.8V27.2h15.6v13zm0-15H26.8V12.2h15.6v13z"/>
+</svg>

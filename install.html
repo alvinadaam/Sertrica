@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERTRICA — Download BETA2</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/kayframes.css">
+    <style>
+        /* ===== INSTALL PAGE ADDITIONS ===== */
+        .download-content {
+            max-width: 1200px;
+            margin: 5vh auto;
+            padding: 0 5%;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .requirements h2 {
+            color: #00FF9D;
+            border-bottom: 2px solid rgba(0, 255, 157, 0.3);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Troubleshooting Note */
+        .troubleshooting {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            color: rgba(224, 224, 224, 0.6);
+            margin: 2rem 0;
+        }
+
+        /* Download Cards Grid */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .download-card {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            border-left: 3px solid #00FEFE;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 12px rgba(0, 254, 254, 0.1);
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-card[data-animation="fadeInLeft"] {
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+
+        .download-card[data-animation="fadeInRight"] {
+            opacity: 0;
+            animation: fadeInRight 1s ease-out forwards;
+        }
+
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 8px rgba(0, 254, 254, 0.4));
+        }
+
+        .download-card h3 {
+            color: #00FEFE;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-card small {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* Feature List Animation */
+        .feature-list li {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .feature-list li:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+
+        .feature-list li:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+
+
+        /* Keyframes for Download Card Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        /* —————————————————————————————— */
+        /* Hero Call-to-Action Buttons */
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid #00FEFE;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #00FEFE;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: rgba(0, 254, 254, 0.1);
+            transform: scale(1.05);
+        }
+
+        .cta-btn.outline {
+            border-color: #E0E0E0;
+            color: #E0E0E0;
+        }
+
+        .cta-btn.outline:hover {
+            background: rgba(224, 224, 224, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation: Reused slideInFromTop animation -->
+    <nav>
+        <div class="logo">SERTRICA</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <main class="download-content">
+        <!-- Hero Section: fadeInWithZoom animation -->
+        <div class="hero">
+            <h1>Get SERTRICA BETA2</h1>
+            <p class="tagline">Lightweight encryption—ready in seconds.</p>
+        </div>
+
+        <!-- Requirements: fadeInUp animation -->
+        <section class="requirements">
+            <h2>Requirements</h2>
+            <ul class="feature-list">
+                <li>Python 3.8 or newer</li>
+                <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+            </ul>
+        </section>
+
+        <!-- Download Cards: Grid layout -->
+        <div class="download-grid">
+            <div class="download-card" data-animation="fadeInLeft" aria-label="Download for Windows">
+                <img src="assets/windows-icon.svg" alt="Windows Icon" class="platform-icon">
+                <h3>Windows</h3>
+                <a href="SERTRICA.zip" class="cta-btn">Download ZIP</a>
+                <small>Unzip, then double-click sertrica.bat</small>
+            </div>
+            <div class="download-card" data-animation="fadeInRight" aria-label="Download for macOS and Linux">
+                <img src="assets/terminal-icon.svg" alt="Terminal Icon" class="platform-icon">
+                <h3>macOS & Linux</h3>
+                <a href="SERTRICA.zip" class="cta-btn">Download ZIP</a>
+                <small>Unzip, then <code>chmod +x sertrica.sh && ./sertrica.sh</code></small>
+            </div>
+        </div>
+
+        <!-- Troubleshooting Note -->
+        <aside class="troubleshooting">
+            If sertrica.sh doesn’t run, ensure execute permissions: <code>chmod +x sertrica.sh</code>
+        </aside>
+
+        <!-- Extras Section -->
+        <div class="repo-link">
+            <a href="https://github.com/xzeromin/SERTRICA" class="repo-link">
+                View on GitHub ↗
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer: Reused meta-info styling -->
+    <footer class="meta-info">
+        <div>MIT License | v2.0.0-beta2</div>
+        <div>© 2025 xzeromin</div>
+    </footer>
+</body>
+
+</html>
