@@ -220,6 +220,8 @@ h1::after {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.1rem;
+    position: relative; /* Ensure z-index works */
+    z-index: 1; /* Add this to bring it above body::before */
 }
 
 .repo-link a {
